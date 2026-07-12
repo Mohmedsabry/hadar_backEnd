@@ -34,4 +34,12 @@ dependencies {
 
     testImplementation(kotlin("test"))
     testImplementation(ktorLibs.server.testHost)
+    implementation("io.insert-koin:koin-ktor:4.1.1")
+    // ktorm DB
+    implementation("org.ktorm:ktorm-core:4.0.0")
+    implementation("com.mysql:mysql-connector-j:9.3.0")
+    implementation("org.mindrot:jbcrypt:0.4")
+    // jwt
+    implementation("io.ktor:ktor-server-auth:3.0.0-rc-2")
+    implementation("io.ktor:ktor-server-auth-jwt:3.0.0-rc-2")
 }
