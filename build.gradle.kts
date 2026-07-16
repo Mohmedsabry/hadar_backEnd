@@ -9,11 +9,14 @@ group = "com.hadar"
 version = "1.0.0-SNAPSHOT"
 
 application {
-    mainClass = "io.ktor.server.netty.EngineMain"
+    mainClass.set("com.example.mainKt")
+    applicationDefaultJvmArgs = listOf("-Dio.ktor.development=true")
 }
-
+ktor{
+    development = true
+}
 kotlin {
-    jvmToolchain(21)
+    jvmToolchain(17)
 }
 dependencies {
     implementation(ktorLibs.serialization.kotlinx.json)
