@@ -89,7 +89,7 @@ class AuthRepositoryImpl(
         email: String,
         password: String,
         config: ApplicationConfig
-    ): String {
+    ): Map<TokenType, String> {
         val user = connection.from(userEntity)
             .select()
             .where {
@@ -116,15 +116,20 @@ class AuthRepositoryImpl(
             config = config,
             expireDate = Date(accessTokenDate)
         )
+        val refreshToken = generateToken(
+            config = config,
+            expireDate = Date(refreshTokenDate)
+        )
         connection.update(
             authentication
         ) {
             set(authentication.accessToken, accessToken)
+            set(authentication.refreshToken, refreshToken)
             where {
                 authentication.userId eq user.id
             }
         }
-        return accessToken
+        return mapOf(TokenType.ACCESS to accessToken, TokenType.REFRESH to refreshToken)
     }
 
     override suspend fun getUser(

@@ -15,7 +15,7 @@ interface AuthRepository {
         email: String,
         password: String,
         config: ApplicationConfig
-    ): String
+    ): Map<TokenType, String>
 
     suspend fun getUser(userId: String): UserDto?
     suspend fun validateUserToken(

@@ -9,7 +9,7 @@ group = "com.hadar"
 version = "1.0.0-SNAPSHOT"
 
 application {
-    mainClass.set("com.example.mainKt")
+    mainClass.set("com.hadar.MainKt")
     applicationDefaultJvmArgs = listOf("-Dio.ktor.development=true")
 }
 ktor{

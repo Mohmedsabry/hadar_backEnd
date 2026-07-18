@@ -9,17 +9,17 @@ import io.ktor.server.application.*
 import io.ktor.server.config.*
 import io.ktor.server.engine.*
 import io.ktor.server.netty.*
+import io.ktor.util.collections.setValue
 import org.koin.ktor.ext.get
 import org.koin.ktor.plugin.Koin
 
 
-fun main(array: Array<String>) {
+fun main(args: Array<String>) {
     embeddedServer(
         factory = Netty,
         port = 8080,
         host = "0.0.0.0",
         module = Application::module,
-        watchPaths = array.toList()
     ).start(wait = true)
 }
 

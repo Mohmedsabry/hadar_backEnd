@@ -26,6 +26,7 @@ fun Application.configureSecurity(
             challenge { _, _ ->
                 call.respond(HttpStatusCode.Unauthorized, "Invalid token")
             }
+            validate {  }
         }
     }
 }
